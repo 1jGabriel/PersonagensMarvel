@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Marvel Heroes</string>
+    <string name="error_usuario">Informe o usuário</string>
+    <string name="error_senha">Informe a senha</string>
+    <string name="login">Obter mais</string>
+
+    <string name="title_activity_fullscreen">FullscreenActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="seta_esquerda"><![CDATA[<]]></string>
+    <string name="seta_direita"><![CDATA[>]]></string>
+</resources>
