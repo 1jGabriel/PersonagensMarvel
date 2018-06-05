@@ -54,7 +54,7 @@ class HeroesActivity : AppCompatActivity() {
             }
         }
 
-r        next_btn.setOnClickListener {
+        next_btn.setOnClickListener {
             offset += 20
             viewModel?.getAllHeroes(offset)
         }
