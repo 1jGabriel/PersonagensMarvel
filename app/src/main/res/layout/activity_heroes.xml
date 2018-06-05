@@ -6,21 +6,6 @@
     android:layout_height="match_parent"
     >
 
-    <android.support.v7.widget.AppCompatButton
-        android:id="@+id/get_heroes_btn"
-        android:layout_width="@android:dimen/thumbnail_width"
-        android:layout_height="30dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/rounded_button"
-        android:text="Obter heróis"
-        android:textAllCaps="false"
-        android:textColor="@android:color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <Button
         android:id="@+id/previous_btn"
         android:layout_width="wrap_content"
@@ -75,23 +60,11 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toTopOf="@id/get_heroes_btn"
+        app:layout_constraintBottom_toTopOf="@id/next_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:id="@+id/instrucao"
-        android:textSize="20sp"
-        android:gravity="center"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toTopOf="@id/get_heroes_btn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:text="Clique no botão abaixo para ver os personagens da marvel"
-        android:layout_height="wrap_content" />
 
 
 </android.support.constraint.ConstraintLayout>

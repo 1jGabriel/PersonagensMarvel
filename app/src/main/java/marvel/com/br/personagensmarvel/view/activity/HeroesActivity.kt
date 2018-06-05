@@ -33,6 +33,7 @@ class HeroesActivity : AppCompatActivity() {
         viewModel = ViewModelProviders.of(this, viewModelFactory)
                 .get(HeroesViewModel::class.java)
         doBindings()
+        viewModel?.getAllHeroes(offset)
     }
 
     fun doBindings() {
@@ -42,13 +43,6 @@ class HeroesActivity : AppCompatActivity() {
         observeHeroes()
         observeHero()
 
-        get_heroes_btn.setOnClickListener {
-            viewModel?.getAllHeroes(offset)
-            offset += 20
-            get_heroes_btn.visibility = View.INVISIBLE
-            next_btn.visibility = View.VISIBLE
-            instrucao.visibility = View.GONE
-        }
         previous_btn.setOnClickListener {
             if (offset > 0) {
                 offset -= 20
@@ -60,7 +54,7 @@ class HeroesActivity : AppCompatActivity() {
             }
         }
 
-        next_btn.setOnClickListener {
+r        next_btn.setOnClickListener {
             offset += 20
             viewModel?.getAllHeroes(offset)
         }
@@ -72,7 +66,7 @@ class HeroesActivity : AppCompatActivity() {
 
             loading.visibility = if (loadingFlag) View.VISIBLE else View.GONE
             recycler.visibility = if (loadingFlag) View.INVISIBLE else View.VISIBLE
-            if (offset > 20) {
+            if (offset >19) {
                 previous_btn.visibility = if (loadingFlag) View.GONE else View.VISIBLE
                 next_btn.visibility = if (loadingFlag) View.GONE else View.VISIBLE
             }
@@ -97,6 +91,9 @@ class HeroesActivity : AppCompatActivity() {
             recycler.layoutManager = LinearLayoutManager(this)
             recycler.layoutManager = GridLayoutManager(this, 3)
             recycler.adapter = HeroAdapter(it, this)
+            if(offset == 0){
+                next_btn.visibility = View.VISIBLE
+            }
         })
     }
 }
