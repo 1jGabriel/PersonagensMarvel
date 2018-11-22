@@ -9,9 +9,6 @@ class BaseApplication: Application() {
 
     override fun onCreate() {
         super.onCreate()
-
-        //graph = DaggerApiComponent.builder().apiModule(ApiModule(this)).build()
-
         startKoin(this, listOf(myModule))
     }
 
