@@ -18,3 +18,4 @@ interface Service {
                   @Query("hash")hash: String = "afa953bc4bb3a148854666b4e5280ca2") : Observable<Dados>
 
 }
+

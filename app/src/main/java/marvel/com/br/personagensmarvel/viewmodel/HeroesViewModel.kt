@@ -4,22 +4,18 @@ import android.arch.lifecycle.MutableLiveData
 import marvel.com.br.personagensmarvel.model.consulta.Heroi
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import javax.inject.Inject
+import marvel.com.br.personagensmarvel.model.Service
 
-class HeroesViewModel : BaseViewModel {
-    @Inject
-    constructor()
-
+class HeroesViewModel(val service : Service) : BaseViewModel() {
     var status = MutableLiveData<Boolean>()
     var error = MutableLiveData<String>()
     var heroi = MutableLiveData<Heroi>()
     var herois = MutableLiveData<ArrayList<Heroi>>()
 
 
-    override fun refreshItens() {}
     fun getHero(id: Int) {
         //homem de ferro = 1009368
-        disposables.add(service.getHero(id)
+        disposables.add(service.getHero(id)!!
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnSubscribe { status.value = true }
@@ -36,7 +32,7 @@ class HeroesViewModel : BaseViewModel {
     }
 
     fun getAllHeroes(offset : Int) {
-        disposables.add(service.getHeroes(offset.toString())
+        disposables.add(service.getHeroes(offset.toString())!!
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnSubscribe { status.value = true }

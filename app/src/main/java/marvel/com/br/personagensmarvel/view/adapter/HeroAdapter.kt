@@ -12,18 +12,11 @@ import kotlinx.android.synthetic.main.item_recycler_view.view.*
 import marvel.com.br.personagensmarvel.R
 
 class HeroAdapter(val heroes: ArrayList<Heroi>?, val context: Context) : RecyclerView.Adapter<ViewHolder>() {
-
-    override fun getItemCount(): Int {
-        return heroes?.size!!
-    }
-
-    // Inflates the item views
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(LayoutInflater.from(context).inflate(R.layout.item_recycler_view, parent, false))
     }
 
-    // Binds each animal in the ArrayList to a view
-    override fun onBindViewHolder(holder: ViewHolder?, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         Picasso.get()
                 .load(heroes?.get(position)?.foto?.path + "." + heroes?.get(position)?.foto?.extension)
                 .resize(120, 120)
@@ -34,7 +27,7 @@ class HeroAdapter(val heroes: ArrayList<Heroi>?, val context: Context) : Recycle
         holder?.nameText?.text = heroes?.get(position)?.name
 
         holder?.itemView?.setOnClickListener {
-           val builder = AlertDialog.Builder(context)
+            val builder = AlertDialog.Builder(context)
             builder.setMessage(
                     if(heroes?.get(position)?.description==""){
                         "Não há descrição sobre este personagem."
@@ -46,6 +39,13 @@ class HeroAdapter(val heroes: ArrayList<Heroi>?, val context: Context) : Recycle
             builder.show()
         }
     }
+
+    override fun getItemCount(): Int {
+        return heroes?.size!!
+    }
+
+
+    // Binds each animal in the ArrayList to a view
 }
 
 class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
